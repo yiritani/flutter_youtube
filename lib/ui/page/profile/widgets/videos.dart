@@ -27,6 +27,10 @@ class _VideosPageState extends State<VideosPage> {
     print('Tapped more ${index}');
   }
 
+  void _refresh() {
+    print('Refreshed');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,23 +45,29 @@ class _VideosPageState extends State<VideosPage> {
             ),
           ),
           Flexible(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-                // 全然よくわからんがこうしないとタップ時の色がつかない
-                return Material(
-                  color: Colors
-                      .transparent, // Set to transparent to allow ripple effect
-                  child: InkWell(
-                    onTap: () => _onVideoTapped(index),
-                    child: VideoThumbnail(
-                      videoIndex: index,
-                      onVideoTapped: _onVideoTapped,
-                      onLeaderClicked: _onLeaderClicked,
-                    ),
-                  ),
-                );
+            child: RefreshIndicator(
+              onRefresh: () async {
+                await Future.delayed(const Duration(seconds: 1));
+                _refresh();
               },
+              child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (BuildContext context, int index) {
+                  // 全然よくわからんがこうしないとタップ時の色がつかない
+                  return Material(
+                    color: Colors
+                        .transparent, // Set to transparent to allow ripple effect
+                    child: InkWell(
+                      onTap: () => _onVideoTapped(index),
+                      child: VideoThumbnail(
+                        videoIndex: index,
+                        onVideoTapped: _onVideoTapped,
+                        onLeaderClicked: _onLeaderClicked,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],
