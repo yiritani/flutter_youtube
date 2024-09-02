@@ -12,7 +12,7 @@ class _ProfileTabsState extends State<ProfileTabs> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(50),
