@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/ui/page/profile/index.dart';
+import 'package:youtube/ui/page/main/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.black12),
         useMaterial3: true,
       ),
-      home: const ProfilePage(),
+      home: const MainPage(),
     );
   }
 }
