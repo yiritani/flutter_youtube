@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 
-class VideoSamnale extends StatefulWidget {
+class VideoThumbnail extends StatefulWidget {
   final int videoIndex;
-  const VideoSamnale({super.key, required this.videoIndex});
+  final Function onVideoTapped;
+  final Function onLeaderClicked;
+  const VideoThumbnail(
+      {super.key,
+      required this.videoIndex,
+      required this.onVideoTapped,
+      required this.onLeaderClicked});
 
   @override
-  State<VideoSamnale> createState() => _VideoSamnaleState();
+  State<VideoThumbnail> createState() => _VideoThumbnailState();
 }
 
-class _VideoSamnaleState extends State<VideoSamnale> {
+class _VideoThumbnailState extends State<VideoThumbnail> {
   @override
   Widget build(BuildContext context) {
-    final String _videoIndex = widget.videoIndex.toString();
     return InkWell(
       onTap: () {
-        print('Tapped ${widget.videoIndex}');
+        widget.onVideoTapped(widget.videoIndex);
       },
       highlightColor: Colors.pink,
       child: Container(
@@ -32,16 +37,16 @@ class _VideoSamnaleState extends State<VideoSamnale> {
               ),
             ),
             const SizedBox(width: 16),
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('タイトル',
-                      style: TextStyle(
+                  Text('タイトル${widget.videoIndex}',
+                      style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  Row(
+                  const Row(
                     children: [
                       Text('244 views',
                           style: TextStyle(
@@ -65,7 +70,7 @@ class _VideoSamnaleState extends State<VideoSamnale> {
             ),
             InkWell(
                 onTap: () {
-                  print('Tapped more ${widget.videoIndex}');
+                  widget.onLeaderClicked();
                 },
                 child: const Icon(Icons.more_vert, color: Colors.grey)),
           ],

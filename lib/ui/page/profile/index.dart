@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/widgets/like_url.dart';
-import 'package:youtube/widgets/profile_tabs.dart';
-import 'package:youtube/widgets/user_card.dart';
+import 'package:youtube/ui/page/profile/widgets/like_url.dart';
+import 'package:youtube/ui/page/profile/widgets/profile_tabs.dart';
+import 'package:youtube/ui/page/profile/widgets/user_card.dart';
 
-import '../widgets/video_samnale.dart';
-
-class ListPage extends StatefulWidget {
-  const ListPage({super.key});
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key});
 
   @override
-  State<ListPage> createState() => _ListPageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class TabInfo {
-  String label;
-  Widget widget;
-  TabInfo(this.label, this.widget);
-}
-
-class _ListPageState extends State<ListPage> {
-  final List<TabInfo> _tabs = [
-    TabInfo("SAN CLEMENTE", VideoSamnale(videoIndex: 0)),
-  ];
-
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

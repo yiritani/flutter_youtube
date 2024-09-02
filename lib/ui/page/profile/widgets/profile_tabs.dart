@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:youtube/widgets/videos.dart';
+import 'package:youtube/ui/page/profile/widgets/videos.dart';
 
 class ProfileTabs extends StatefulWidget {
   const ProfileTabs({super.key});
@@ -23,7 +23,6 @@ class _ProfileTabsState extends State<ProfileTabs> {
               dividerColor: Colors.grey,
               indicatorColor: Colors.white,
               tabs: [
-                Tab(text: 'Home'),
                 Tab(text: 'Videos'),
                 Tab(text: 'Shorts'),
                 Tab(text: 'Live'),
@@ -34,7 +33,6 @@ class _ProfileTabsState extends State<ProfileTabs> {
         ),
         body: const TabBarView(
           children: [
-            Icon(Icons.directions_car),
             VideosPage(),
             Icon(Icons.directions_bike),
             Icon(Icons.directions_bike),
