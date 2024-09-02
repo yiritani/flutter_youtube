@@ -70,7 +70,7 @@ class _VideoThumbnailState extends State<VideoThumbnail> {
             ),
             InkWell(
                 onTap: () {
-                  widget.onLeaderClicked();
+                  widget.onLeaderClicked(widget.videoIndex);
                 },
                 child: const Icon(Icons.more_vert, color: Colors.grey)),
           ],

@@ -50,7 +50,6 @@ class _VideosPageState extends State<VideosPage> {
                       .transparent, // Set to transparent to allow ripple effect
                   child: InkWell(
                     onTap: () => _onVideoTapped(index),
-                    onLongPress: () => _onLeaderClicked(index),
                     child: VideoThumbnail(
                       videoIndex: index,
                       onVideoTapped: _onVideoTapped,
